@@ -40,18 +40,24 @@ export function favicon(domain) {
   return `https://favicon.malsync.moe/?domain=${domain}`;
 }
 
-export function watching(type: 'anime' | 'manga') {
+export function watching(type: 'anime' | 'manga' | 'movie' | 'tv') {
   if (type === 'manga') return 'Reading';
+  if (type === 'movie') return 'Watching'; // Ou 'Assistindo Filme'
+  if (type === 'tv') return 'Watching'; // Ou 'Assistindo Série'
   return 'Watching';
 }
 
-export function planTo(type: 'anime' | 'manga') {
+export function planTo(type: 'anime' | 'manga' | 'movie' | 'tv') {
   if (type === 'manga') return 'Plan to Read';
+  if (type === 'movie') return 'Plan to Watch';
+  if (type === 'tv') return 'Plan to Watch';
   return 'Plan to Watch';
 }
 
-export function episode(type: 'anime' | 'manga') {
+export function episode(type: 'anime' | 'manga' | 'movie' | 'tv') {
   if (type === 'manga') return api.storage.lang('UI_Chapter');
+  if (type === 'movie') return api.storage.lang('UI_Episode'); // Adicione essa chave na tradução
+  if (type === 'tv') return api.storage.lang('UI_Episode'); // Pode usar episódio para série
   return api.storage.lang('UI_Episode');
 }
 
@@ -813,7 +819,7 @@ export function lazyload(doc, scrollElement = '.mdl-layout__content') {
     for (let i = 0; i < lazyimages.length; i++) {
       if (utils.elementInViewport(lazyimages[i], 600)) {
         // eslint-disable-next-line
-        loadImage(lazyimages[i], function() {
+        loadImage(lazyimages[i], function () {
           lazyimages.splice(i, i);
         });
       }

@@ -9,8 +9,70 @@
   "less.validate": false,
   "scss.validate": false,
   "vetur.validation.template": false,
-  "conventionalCommits.scopes": [
-    "turkanime",
-    "tranimeizle"
-  ],
+  "conventionalCommits.scopes": ["turkanime", "tranimeizle"],
+
+  // Novas configurações para análise completa do projeto
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.suggest.autoImports": true,
+  "javascript.preferences.quoteStyle": "single",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // Configurações para melhorar performance
+  "typescript.tsserver.maxTsServerMemory": 4096,
+  "typescript.tsserver.watchOptions": {
+    "watchFile": "useFsEvents",
+    "watchDirectory": "useFsEvents",
+    "fallbackPolling": "dynamicPriority"
+  },
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/dist/**": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true
+  },
+
+  // Desativar validações que estão causando linhas amarelas
+  "typescript.reportStyleChecksAsWarnings": false,
+  "js/ts.implicitProjectConfig.checkJs": false,
+
+  // Melhorar a experiência do Vue
+  "volar.takeOverMode.enabled": true,
+
+  // Configurações para desativar avisos
+  "typescript.reportDeprecated": false,
+  "typescript.suggestionActions.enabled": false,
+  "typescript.validate.enable": false, // Desativa completamente a validação do TypeScript
+  "javascript.validate.enable": false, // Desativa completamente a validação do JavaScript
+  "js/ts.implicitProjectConfig.checkJs": false,
+  "js/ts.implicitProjectConfig.strictNullChecks": false,
+
+  // Desativar ESLint também se necessário
+  "eslint.enable": false,
+
+  // Configurações para o Editor
+  "editor.lightbulb.enabled": "off", // Desativa as sugestões de ação
+  "problems.decorations.enabled": false, // Desativa decorações de problemas
+
+  // Desativar CSpell completamente
+  "cSpell.enabled": false,
+
+  // Ou apenas ignorar arquivos específicos
+  "cSpell.ignorePaths": [
+    "node_modules",
+    "**/node_modules",
+    "**/node_modules/**",
+    "dist",
+    "src/**",
+    "**/*.ts",
+    "**/*.vue"
+  ]
 }

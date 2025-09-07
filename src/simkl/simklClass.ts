@@ -57,7 +57,15 @@ export class SimklClass {
     const urlpart = utils.urlPart(this.url, 3);
     const url2part = utils.urlPart(this.url, 4);
 
-    if ((urlpart === 'anime' || urlpart === 'manga') && !Number.isNaN(Number(url2part))) {
+    // Modificação: Adicionando suporte a filmes e séries
+    if (
+      (urlpart === 'anime' ||
+        urlpart === 'manga' ||
+        urlpart === 'movie' ||
+        urlpart === 'tv' ||
+        urlpart === 'show') &&
+      !Number.isNaN(Number(url2part))
+    ) {
       const malObj = new SimklSingle(this.url);
       await malObj.update();
 
@@ -148,18 +156,20 @@ export class SimklClass {
     con.log('Streaming UI');
 
     const { malObj } = this.page;
-
     const streamUrl = malObj.getStreamingUrl();
     if (typeof streamUrl !== 'undefined') {
       this.malkiss.streamUrl = streamUrl;
 
-      const resumeUrlObj = malObj.getResumeWatching();
-      const continueUrlObj = malObj.getContinueWatching();
-      con.log('Resume', resumeUrlObj, 'Continue', continueUrlObj);
-      if (continueUrlObj && continueUrlObj.ep === malObj.getEpisode() + 1) {
-        this.malkiss.continueUrl = continueUrlObj.url;
-      } else if (resumeUrlObj && resumeUrlObj.ep === malObj.getEpisode()) {
-        this.malkiss.resumeUrl = resumeUrlObj.url;
+      // Modificação: Só usa continue/resume para anime e tv (não para filmes)
+      if (this.page.type !== 'movie') {
+        const resumeUrlObj = malObj.getResumeWatching();
+        const continueUrlObj = malObj.getContinueWatching();
+        con.log('Resume', resumeUrlObj, 'Continue', continueUrlObj);
+        if (continueUrlObj && continueUrlObj.ep === malObj.getEpisode() + 1) {
+          this.malkiss.continueUrl = continueUrlObj.url;
+        } else if (resumeUrlObj && resumeUrlObj.ep === malObj.getEpisode()) {
+          this.malkiss.resumeUrl = resumeUrlObj.url;
+        }
       }
     } else {
       this.malkiss.streamUrl = null;
@@ -174,14 +184,18 @@ export class SimklClass {
     return $('h1').first().text().trim() || '';
   }
 
-  malToKiss() {
+  async malToKiss() {
     con.log('malToKiss');
 
     const title = this.getTitle();
 
-    activeLinks(this.page!.type, this.page!.malid, title).then(links => {
+    try {
+      const links = await activeLinks(this.page!.type, this.page!.malid, title);
       this.malkiss.links = links;
-    });
+    } catch (error) {
+      con.error('Failed to get active links:', error);
+      this.malkiss.links = [];
+    }
   }
 
   async pageRelation() {
