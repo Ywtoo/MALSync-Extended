@@ -257,6 +257,8 @@ module.exports = {
       '*://*.mixdrop.cv/e/*',
       '*://*.md3b0j6hj.com/e/*',
       '*://*.m1xdrop.net/e/*',
+      '*://*.m1xdrop.com/e/*',
+      '*://*.m1xdrop.bz/e/*',
       // auto-mixdrop-replace-dont-remove
     ],
   },
@@ -552,6 +554,7 @@ module.exports = {
       '*://crystaltreatmenteast.com/e/*',
       '*://myvidplay.com/e/*',
       '*://lauradaydo.com/e/*',
+      '*://lancewhosedifficult.com/e/*',
       // auto-voe-replace-dont-remove
     ],
   },
@@ -882,5 +885,8 @@ module.exports = {
   },
   sHide: {
     match: ['*://callistanise.com/*', '*://habetar.com/*', '*://yuguaab.com/*'],
+  },
+  allManga: {
+    match: ['*://*.fast4speed.rsvp/*', '*://*.sharepoint.com/*'],
   },
 };
