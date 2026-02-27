@@ -1,13 +1,20 @@
-[![Discord](https://img.shields.io/discord/358599430502481920.svg?style=flat-square&logo=discord&label=Chat%20%2F%20Support&colorB=7289DA)](https://discord.com/invite/cTH4yaw)
-[![Issues](https://img.shields.io/github/issues/MALSync/MALSync.svg?style=flat-square&logo=github&logoColor=white)](https://github.com/MALSync/MALSync/issues)
+[![Discord](https://img.shields.io/discord/358599430502481920.svg?style=flat-square\&logo=discord\&label=Chat%20%2F%20Support\&colorB=7289DA)](https://discord.com/invite/cTH4yaw)
+[![Issues](https://img.shields.io/github/issues/MALSync/MALSync.svg?style=flat-square\&logo=github\&logoColor=white)](https://github.com/MALSync/MALSync/issues)
 [![CodeFactor](https://www.codefactor.io/repository/github/MALSync/MALSync/badge)](https://www.codefactor.io/repository/github/MALSync/MALSync)
 [![Translation status](https://translate.malsync.moe/widgets/mal-sync/-/extension/svg-badge.svg)](https://translate.malsync.moe/engage/mal-sync/)
 
-# MAL-Sync
+# MAL-Sync Extended
 
-**MAL-Sync** is a powerful extension and userscript, which enables automatic episode tracking between MyAnimeList/Anilist/Kitsu/Simkl and multiple anime streaming websites.
+**MAL-Sync Extended** is a fork of the original MAL-Sync, designed to provide **automatic tracking and synchronization across multiple media types**: anime, manga, films, TV series, and more.
 
-Makes it possible to use your MyAnimeList/Anilist/Kitsu/Simkl anime/mangalist as a centralized bookmarks system for all supported pages.
+It allows you to use your MyAnimeList/Anilist/Kitsu/Simkl lists as a **centralized bookmark and tracking system** across supported platforms, expanding beyond anime-only support.
+
+#### **Key Features**
+
+* Full anime and manga support (original MAL-Sync)
+* Extended support for films, series, and other media via Simkl integration
+* Compatibility with media servers: Plex, Emby, Jellyfin, Komga, Kavita, Suwayomi, etc.
+* Centralized tracking of all your media progress
 
 #### **Supported Pages** <a id="anchor-link"></a>
 
